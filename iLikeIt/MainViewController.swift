@@ -33,11 +33,18 @@ class MainViewController: UIViewController {
   @IBOutlet weak var likeButton: UIButton!
   @IBOutlet weak var salesCountLabel: UILabel!
   @IBOutlet weak var imageView: UIImageView!
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    likeButton.setTitle(NSLocalizedString("You Like?", comment: "You like the result?"), for: .normal)
+  }
   
   @IBAction func likeButtonPressed() {
     guard salesCountLabel.isHidden else { return }
     let period = getMonthCount()
-    salesCountLabel.text = "You have sold 1000 apps in \(period) months"
+    let formatString = NSLocalizedString("You have sold 1000 apps in %d months", comment: "Time to sell 1000 apps")
+    salesCountLabel.text = String.localizedStringWithFormat(formatString, period)
     salesCountLabel.isHidden = false
     imageView.isHidden = false
     salesCountLabel.alpha = 0
