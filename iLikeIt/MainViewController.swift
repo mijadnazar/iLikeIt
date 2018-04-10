@@ -37,7 +37,7 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    likeButton.setTitle(NSLocalizedString("You Like?", comment: "You like the result?"), for: .normal)
+    imageView.image = UIImage(named: NSLocalizedString("imageName", comment: "name of the image file"))
   }
   
   @IBAction func likeButtonPressed() {
